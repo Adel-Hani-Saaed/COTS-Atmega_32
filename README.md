@@ -12,22 +12,36 @@ This repository contains a set of modular and reusable drivers for the ATmega32 
 ```
 |-- MCAL
 |   |-- DIO
+|   |-- PORT_Module Based on Autosar
+|   |-- EXTI
+|   |-- GIE
 |   |-- ADC
 |   |-- UART
 |   |-- SPI
 |   |-- I2C
-|   |-- TIMER
+|   |-- TIMERS
 |   |-- WDT
 |
 |-- HAL
 |   |-- LCD
+|   |-- SWITCH
+|   |-- SSD
+|   |-- BUZZER
+|   |-- LCD 16*2
 |   |-- KEYPAD
-|   |-- MOTOR
-|   |-- SENSORS
+|   |-- DC_MOTOR
+|   |-- STEPPER_MOTOR
+|   |-- SERVO_MOTOR
+|   |-- DAC
+|   |-- LM35_Sensor 
+|   |-- LDR_Sensor
+|   |-- ULTRASONIC
+|   |-- EEPROM
 |
 |-- LIBS
 |   |-- BIT_MATH.h
 |   |-- STD_TYPES.h
+|   |-- MAPPING
 |
 |-- RTOS
 |   |-- Scheduler.c
@@ -41,6 +55,17 @@ This repository contains a set of modular and reusable drivers for the ATmega32 
 ### DIO (Digital Input/Output)
 - Functions to set, clear, toggle, and read pin values.
 - Supports port-wide operations.
+
+### PORT_Module Based on Autosar
+- Implements AUTOSAR-based port driver.
+- Provides standardized APIs for pin configuration.
+
+### EXTI (External Interrupts)
+- Supports multiple interrupt sources.
+- Configurable trigger modes (rising, falling, or both edges).
+
+### GIE (Global Interrupt Enable)
+- Provides functions to enable and disable global interrupts.
 
 ### ADC (Analog-to-Digital Converter)
 - Supports single and continuous conversion modes.
@@ -58,7 +83,7 @@ This repository contains a set of modular and reusable drivers for the ATmega32 
 - Supports master and slave communication.
 - Interrupt and polling-based data transmission.
 
-### TIMER (Timer/Counter)
+### TIMERS (Timer/Counter)
 - Supports different timer modes (normal, CTC, PWM).
 - Configurable prescalers and interrupts.
 
@@ -71,21 +96,59 @@ This repository contains a set of modular and reusable drivers for the ATmega32 
 - Supports 4-bit and 8-bit modes.
 - Provides APIs for character and string display.
 
+### SWITCH
+- Handles push buttons and toggle switches.
+- Supports software debouncing.
+
+### SSD (Seven Segment Display)
+- Supports common anode and cathode configurations.
+- Provides number display functions.
+
+### BUZZER
+- Controls buzzer activation and deactivation.
+
+### LCD 16*2
+- Extended functionalities for 16x2 character LCDs.
+
 ### KEYPAD
 - Handles matrix keypads with debouncing.
 - Supports dynamic scanning.
 
-### MOTOR (DC Motor and Servo)
+### DC_MOTOR
 - Functions for speed and direction control.
 - Supports PWM-based speed regulation.
 
-### SENSORS
-- Includes support for temperature, IR, and ultrasonic sensors.
-- Provides simple APIs to retrieve sensor data.
+### STEPPER_MOTOR
+- Provides step and direction control.
+- Supports different stepping modes (full, half, micro-step).
+
+### SERVO_MOTOR
+- Uses PWM for position control.
+- Configurable angle range.
+
+### DAC (Digital-to-Analog Converter)
+- Supports generating analog output from digital signals.
+
+### LM35_Sensor (Temperature Sensor)
+- Reads temperature values in Celsius.
+- Provides API for conversion and calibration.
+
+### LDR_Sensor (Light Dependent Resistor)
+- Measures ambient light intensity.
+- Outputs voltage proportional to light level.
+
+### ULTRASONIC
+- Measures distance using sound waves.
+- Provides API for precise distance calculations.
+
+### EEPROM
+- Supports read and write operations.
+- Non-volatile memory storage.
 
 ## LIBS
 - **BIT_MATH.h**: Macros for bit manipulation.
 - **STD_TYPES.h**: Standard data types for portability.
+- **MAPPING**: Macros for mapping values from one range to another.
 
 ## RTOS Stack
 - Implements a basic cooperative/preemptive scheduler.
@@ -111,9 +174,3 @@ This repository contains a set of modular and reusable drivers for the ATmega32 
    ```sh
    avrdude -c usbasp -p m32 -U flash:w:main.hex:i
    ```
-
-## Contribution
-Feel free to submit issues or pull requests to improve the drivers.
-
-## License
-This project is licensed under the MIT License.
