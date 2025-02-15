@@ -46,6 +46,9 @@ This repository contains a set of modular and reusable drivers for the ATmega32 
 |-- RTOS
 |   |-- Scheduler.c
 |   |-- Scheduler.h
+|
+|-- README.md
+
 
 ## MCAL Drivers
 ### DIO (Digital Input/Output)
