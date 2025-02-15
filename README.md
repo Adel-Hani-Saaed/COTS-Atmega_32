@@ -46,10 +46,6 @@ This repository contains a set of modular and reusable drivers for the ATmega32 
 |-- RTOS
 |   |-- Scheduler.c
 |   |-- Scheduler.h
-|
-|-- README.md
-|-- main.c
-```
 
 ## MCAL Drivers
 ### DIO (Digital Input/Output)
@@ -161,16 +157,3 @@ This repository contains a set of modular and reusable drivers for the ATmega32 
 - Atmel Studio / Arduino IDE (optional)
 - AVR ISP Programmer
 
-### Compilation & Upload
-1. Compile the code using `avr-gcc`:
-   ```sh
-   avr-gcc -mmcu=atmega32 -o main.elf main.c
-   ```
-2. Convert to HEX file:
-   ```sh
-   avr-objcopy -O ihex main.elf main.hex
-   ```
-3. Upload to ATmega32 using AVRDUDE:
-   ```sh
-   avrdude -c usbasp -p m32 -U flash:w:main.hex:i
-   ```
